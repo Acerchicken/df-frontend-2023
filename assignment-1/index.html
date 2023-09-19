@@ -4,11 +4,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Bookstore</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/icon" href="https://img.freepik.com/premium-vector/pastel-book-icon-education-concept_77417-1738.jpg?w=740">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-
   <body>
-    Hello world
+    <div class="container">
+      <div> 
+        <h2>Bookstore</h2>
+      </div>
+      <div class="containerUser">
+        <img class="ImgUser" src="https://freesvg.org/img/abstract-user-flat-1.png" alt="UserImg" title="User">
+        <a class="UserName">Acerchicken</a>
+      </div>
+    </div>
+    <hr>
+    <div class="SandAbooks">
+      <input class="SearchBox" placeholder="Search books">
+      <button class="buttAdd" onclick="togglePopup(popupMain)">Add Book</button>
+    </div>
+
+    <div class="popup-content" id="popupMain">
+      <span class="close-butt" onclick="togglePopup(popupMain)">x</span>
+      <h2>Add Book</h2>
+      <label for="name"><b>Name</b></label>
+      <input type="text" id="name" name="name"><br>
+      <label for="author"><b>Author</b></label>
+      <input type="text" id="author" name="author"><br>
+      <label for="topic"><b>Topic</b></label>
+      <input type="text" id="topic" name="topic"><br>
+      <button class="add-book" onclick="togglePopup(DialogConfirm)">Add Book</button>
+    </div>
+
+    <div class="Dialog" id="DialogConfirm">
+      <div>
+        <h2>Confirmation</h2>
+        <p>Do you want to add this book?</p>
+        <button class="Dialog-butt" onclick="addBookAndClosePopup(document.getElementById('name').value, document.getElementById('author').value, document.getElementById('topic').value)">Yes</button>
+        <button class="Dialog-butt" onclick="togglePopup(DialogConfirm)">No</button>
+      </div>
+    </div>
+
+    <div class="Dialog" id="confirmDeletePopup">
+      <h1>Delete book</h1>
+      <p>Did you want to delete book</p>
+      <button class="Dialog-butt" onclick="deleteConfirmed()">Yes</button>
+      <button class="Dialog-butt" onclick="togglePopup(confirmDeletePopup)">Cancel</button>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Topic</th>
+            <th>Action</th>
+        </tr>
+        <tbody id="bookTableBody"></tbody>
+      </table>
+    </div>
+    
     <script src="script.js"></script>
   </body>
 </html>
