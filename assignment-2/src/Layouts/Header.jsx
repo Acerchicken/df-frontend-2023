@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Header() {
+function Header({ handleModeToggle }) {
   return (
     <div className="container">
       <div className="containerLeft">
         <h2>Bookstore</h2>
       </div>
       <div className="containerUser">
-        {/* <label className="switch">
+        <label className="switch">
           <input type="checkbox" onChange={handleModeToggle} />
           <span className="slider round"></span>
-        </label> */}
+        </label>
         <div className="userSection">
           <img
             className="ImgUser"

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Footer from './Layouts/Footer';
 import Body from './Layouts/Body';
-import Header from './Layouts/Header';
+import Header from './Layouts/Header'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -13,9 +13,9 @@ function App() {
 
   return (
     <div className={`App ${isDarkMode ? "dark-mode" : ""}`}>
-    <Header handleModeToggle={handleModeToggle} />
-    <Body />
-    <Footer />
+      <Header handleModeToggle={handleModeToggle} />
+      <Body />
+      <Footer />
     </div>
   );
 }

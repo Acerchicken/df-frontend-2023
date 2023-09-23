@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  min-height: unset;
 }
 
 .App-link {
@@ -36,11 +37,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+
 /*Dark-Light Mode*/
-/* .App {
+.App {
   text-align: center;
   font-family: sans-serif;
   transition: background-color 0.3s;
+}
+
+.dark-mode .Body{
+  background-color: #333;
 }
 
 .dark-mode {
@@ -50,8 +58,46 @@
 .buttonSW {
   padding: 10px 20px;
   font-size: 16px;
-} */
+}
+/* Đảm bảo rằng màu chữ và nền trong chế độ tối đúng */
+.dark-mode .container {
+  color: #fff;
+  background-color: #333;
+}
+/* Cập nhật màu nền footer và pagination trong chế độ tối */
+.dark-mode .footer,
+.dark-mode .pagination {
+  background-color: #333;
+}
 
+/* Bổ sung padding để tạo khoảng cách giữa footer và nền */
+.footer {
+  padding: 10px 0;
+}
+
+/* Cập nhật màu nền header và footer */
+.dark-mode .App-header,
+.dark-mode .footer {
+  background-color: #333;
+}
+
+/* Cập nhật màu chữ header và footer */
+.dark-mode .App-header,
+.dark-mode .footer {
+  color: #fff;
+}
+
+/* Cập nhật màu nền container và username text */
+.dark-mode .container,
+.dark-mode .UserName {
+  background-color: #333;
+}
+
+/* Cập nhật màu chữ container và username text */
+.dark-mode .container,
+.dark-mode .UserName {
+  color: #fff;
+}
 
 /* ===== Style footer ===== */
 .footer {
@@ -84,7 +130,7 @@ body{
 .container {
   position: relative;
   background-color: white;
-  padding: 1px;
+  padding: 5px 30px;
   top:0;
   height: auto;
   display: flex;
@@ -104,11 +150,12 @@ body{
   margin-left: auto;
 }
 
-/* .switch {
+.switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  right: 15%;
 }
 
 .switch input {
@@ -157,7 +204,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
- */
+
 
 .userSection {
   display: flex;
@@ -173,6 +220,11 @@ input:checked + .slider:before {
 .UserName {
   font-size: 18px;
   margin-left: 5px;
+}
+
+.Body{
+  min-height: 100vh;
+  padding-bottom: 100px;
 }
 
 /*Search Box va Add-Book Button*/

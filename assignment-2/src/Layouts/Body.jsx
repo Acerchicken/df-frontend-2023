@@ -28,7 +28,7 @@ function Body() {
   };
 
   return (
-    <div>
+    <div className="Body">
       <div className="SandAbooks">
         <SearchBooks books={books} setBooks={setBooks} />
         <button className="buttAdd" onClick={() => togglePopup("popupMain")}>
