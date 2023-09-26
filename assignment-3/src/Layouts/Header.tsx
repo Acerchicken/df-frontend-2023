@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = ({ handleModeToggle }) => {
             onChange={handleModeToggle}
             title="Change dark-light mode"
           />
+          <span className="slider round" />
         </label>
         <div className="userSection">
           <img
