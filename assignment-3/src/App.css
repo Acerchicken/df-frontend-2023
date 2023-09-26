@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  min-height: unset;
 }
 
 .App-link {
@@ -35,4 +36,336 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+/*Dark-Light Mode*/
+.App {
+  text-align: center;
+  font-family: sans-serif;
+  transition: background-color 0.3s;
+}
+
+.dark-mode .Body{
+  background-color: #333;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+.buttonSW {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+/* Đảm bảo rằng màu chữ và nền trong chế độ tối đúng */
+.dark-mode .container {
+  color: #fff;
+  background-color: #333;
+}
+/* Cập nhật màu nền footer và pagination trong chế độ tối */
+.dark-mode .footer,
+.dark-mode .pagination {
+  background-color: #333;
+}
+
+/* Bổ sung padding để tạo khoảng cách giữa footer và nền */
+.footer {
+  padding: 10px 0;
+}
+
+/* Cập nhật màu nền header và footer */
+.dark-mode .App-header,
+.dark-mode .footer {
+  background-color: #333;
+}
+
+/* Cập nhật màu chữ header và footer */
+.dark-mode .App-header,
+.dark-mode .footer {
+  color: #fff;
+}
+
+/* Cập nhật màu nền container và username text */
+.dark-mode .container,
+.dark-mode .UserName {
+  background-color: #333;
+}
+
+/* Cập nhật màu chữ container và username text */
+.dark-mode .container,
+.dark-mode .UserName {
+  color: #fff;
+}
+
+/* ===== Style footer ===== */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1px;
+}
+
+/**/
+
+.pagination {
+  position: fixed;
+  bottom: 20%; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.column {
+  width: 300px;
+}
+
+body{
+  font-weight: 500;
+  background-color: whitesmoke;
+}
+
+/*Title va UserName*/
+.container {
+  position: relative;
+  background-color: white;
+  padding: 5px 30px;
+  top:0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  max-height: 10%;
+}
+.containerLeft{
+  margin-right: 10%;
+}
+.containerUser {
+  position: relative;
+  padding: 5px;
+  display: flex;
+  margin-left: auto;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  right: 15%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+
+.userSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ImgUser {
+  max-width: 55px;
+  max-height: 55px;
+}
+
+.UserName {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.Body{
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/*Search Box va Add-Book Button*/
+.SandAbooks{
+  margin: 5px;
+  padding: 5px;
+  border-radius: 9px;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+.SearchBox{
+  border-radius: 9px;
+  border: 5px;
+  margin: 5px;
+  padding: 10px;
+}
+.SearchBox:focus{
+  background-color:  #E6E6FA;
+}
+.buttAdd{
+  width: 150px;
+  border-radius: 9px;
+  border: 5px;
+  margin: 5px;
+  padding: 10px;
+  color: white;
+  background-color: #DC143C;
+}
+.buttAdd:active{
+  transform: scale(0.95);
+}
+
+/*Add-Book Pop-up*/
+.popup-content{
+  display: none;
+  width: 20%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: aquamarine;
+}
+.popup-content h2{
+  margin-bottom: 20px;
+}
+.close-butt{
+  float: right;
+  font-size: 40px;
+}
+label, input {
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 5px auto;
+  width: 100%;
+}
+input{
+  border: 2px;
+  padding: 10px;
+}
+.add-book{
+  float: right;
+  padding: 10px;
+  color: white;
+  margin-top: 10px;
+  background-color: #DC143C;
+  border-radius: 10px; 
+}
+.add-book:active{
+  transform: scale(0.95);
+}
+.close-butt{
+  font-size: 20px;
+  cursor: pointer;
+  text-align:center;
+  font-family: Arial,
+}
+
+/*Confirm Box*/
+.Dialog{
+  display: none;
+  max-width: 30%;
+  padding: 20px 40px;
+  line-height: 250%;
+  border-radius: 10px; /* Rounded corners */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Drop shadow */
+  color: #000; /* Đặt màu chữ trong chế độ tối */
+  background-color: #fff; /* Đặt màu nền trong chế độ tối */
+}
+.Dialog-butt{
+  font-size: large;
+  vertical-align: bottom;
+  border-radius: 5px;
+  margin: 0px 10px;
+  padding: 2px 5px;
+}
+.Dialog-butt:hover{
+  background-color: #DC143C;
+}
+.Dialog-butt:active{
+  transform: scale(0.95);
+}
+
+
+
+/*Bảng hiển thị*/
+.table-container {
+  text-align: center;
+  margin: 50px auto 0
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto; /* Thêm dòng này để căn giữa bảng */
+  border: 1px solid black;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #D9EDF7;
+}
+
+/*Delete trong cột Action*/
+.delete-text {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*Thay đổi trạng thái pop-up*/
+.active {
+  display: block !important;
 }
