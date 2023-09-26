@@ -16,7 +16,7 @@ interface TableProps {
   currentPage: number;
 }
 
-const Table: React.FC<TableProps> = ({ books, setBooks, setIndexDelete, currentPage }) => {
+const Table: React.FC<TableProps> = ({ books, setIndexDelete, currentPage }) => {
   const handleDeleteClick = (index: number) => {
     setIndexDelete(index);
     togglePopup("confirmDeletePopup");

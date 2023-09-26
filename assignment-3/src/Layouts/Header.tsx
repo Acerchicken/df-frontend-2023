@@ -11,8 +11,13 @@ const Header: React.FC<HeaderProps> = ({ handleModeToggle }) => {
         <h2>Bookstore</h2>
       </div>
       <div className="containerUser">
-        <label className="switch">
-          <input type="checkbox" onChange={handleModeToggle} title="Change dark-light mode"/>
+        <label className="switch" htmlFor="darkModeToggle">
+          <input
+            type="checkbox"
+            id="darkModeToggle"  // Add id for associating label with input
+            onChange={handleModeToggle}
+            title="Change dark-light mode"
+          />
           <span className="slider round"></span>
         </label>
         <div className="userSection">

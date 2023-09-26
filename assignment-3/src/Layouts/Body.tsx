@@ -60,12 +60,22 @@ const Body: React.FC<BodyProps> = () => {
       </div>
 
       <div className="popup-content" id="popupMain">
-        <span className="close-butt" onClick={() => togglePopup("popupMain")}>
+        <span
+          className="close-butt"
+          onClick={() => togglePopup("popupMain")}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              togglePopup("popupMain");
+            }
+          }}
+          role="button"
+          tabIndex={0}
+        >
           x
         </span>
         <h2>Add Book</h2>
         <label htmlFor="nameInput">
-          <b>Name</b>
+        <b>Name</b>
         </label>
         <input type="text" id="nameInput" name="nameInput" /><br />
         <label htmlFor="authorInput">
@@ -76,7 +86,11 @@ const Body: React.FC<BodyProps> = () => {
           <b>Topic</b>
         </label>
         <input type="text" id="topicInput" name="topicInput" /><br />
-        <button className="add-book" onClick={handleAddBook}>
+        <button
+          className="add-book"
+          onClick={handleAddBook}
+          type="button" 
+        >
           Add Book
         </button>
       </div>

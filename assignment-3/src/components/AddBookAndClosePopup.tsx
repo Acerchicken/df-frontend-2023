@@ -40,7 +40,7 @@ const AddBookAndClosePopup: React.FC<AddBookAndClosePopupProps> = ({ books, name
   togglePopup('DialogConfirm');
   togglePopup('popupMain');
 
-  return <></>; // Trả về một phần tử JSX trống (hoặc thay bằng phần tử JSX khác nếu cần)
+  return <div></div>;
 };
 
 export default AddBookAndClosePopup;
