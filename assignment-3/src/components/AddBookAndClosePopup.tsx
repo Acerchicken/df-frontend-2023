@@ -15,7 +15,7 @@ interface Book {
   topic: string;
 }
 
-const AddBookAndClosePopup: React.FC<AddBookAndClosePopupProps> = ({ books, name_cpy, author_cpy, topic_cpy, setBooks}) => {
+const AddBookAndClosePopup: React.FC<AddBookAndClosePopupProps> = ({ books, name_cpy, author_cpy, topic_cpy, setBooks }) => {
   const newBook = {
     name: name_cpy,
     author: author_cpy,
@@ -40,7 +40,7 @@ const AddBookAndClosePopup: React.FC<AddBookAndClosePopupProps> = ({ books, name
   togglePopup('DialogConfirm');
   togglePopup('popupMain');
 
-  return <div></div>;
+  return <div />;
 };
 
 export default AddBookAndClosePopup;

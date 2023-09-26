@@ -7,11 +7,6 @@ interface TableProps {
     author: string;
     topic: string;
   }[];
-  setBooks: React.Dispatch<React.SetStateAction<{
-    name: string;
-    author: string;
-    topic: string;
-  }[]>>;
   setIndexDelete: React.Dispatch<React.SetStateAction<number | undefined>>;
   currentPage: number;
 }
@@ -19,7 +14,7 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ books, setIndexDelete, currentPage }) => {
   const handleDeleteClick = (index: number) => {
     setIndexDelete(index);
-    togglePopup("confirmDeletePopup");
+    togglePopup('confirmDeletePopup');
   };
 
   // Tính toán chỉ hiển thị sách trong trang hiện tại
@@ -55,6 +50,6 @@ const Table: React.FC<TableProps> = ({ books, setIndexDelete, currentPage }) => 
       </table>
     </div>
   );
-}
+};
 
 export default Table;

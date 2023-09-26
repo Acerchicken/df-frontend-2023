@@ -1,4 +1,4 @@
-import togglePopup from "./small func/TogglePopup";
+import togglePopup from './small func/TogglePopup';
 
 interface Book {
   name: string;
@@ -10,8 +10,8 @@ const ConfirmedToDelete = (books: Book[], setBooks: React.Dispatch<React.SetStat
   if (indexDelete !== undefined) {
     const updatedBooks = books.filter((_, index) => index !== indexDelete);
     setBooks(updatedBooks);
-    togglePopup("confirmDeletePopup");
+    togglePopup('confirmDeletePopup');
   }
-}
+};
 
 export default ConfirmedToDelete;

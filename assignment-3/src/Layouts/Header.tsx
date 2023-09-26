@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface HeaderProps {
   handleModeToggle: () => void;
@@ -14,11 +14,10 @@ const Header: React.FC<HeaderProps> = ({ handleModeToggle }) => {
         <label className="switch" htmlFor="darkModeToggle">
           <input
             type="checkbox"
-            id="darkModeToggle"  // Add id for associating label with input
+            id="darkModeToggle"
             onChange={handleModeToggle}
             title="Change dark-light mode"
           />
-          <span className="slider round"></span>
         </label>
         <div className="userSection">
           <img
@@ -32,6 +31,6 @@ const Header: React.FC<HeaderProps> = ({ handleModeToggle }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

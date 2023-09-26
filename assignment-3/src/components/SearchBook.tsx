@@ -43,6 +43,6 @@ const SearchBooks: React.FC<SearchBooksProps> = ({ books, setBooks }) => {
       />
     </div>
   );
-}
+};
 
 export default SearchBooks;
