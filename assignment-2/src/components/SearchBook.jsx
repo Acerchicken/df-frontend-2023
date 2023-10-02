@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 
-function SearchBooks({ books, setBooks }) {
+function SearchBooks({ setBooks, books }) {
   const [searchValue, setSearchValue] = useState('');
-  const books_cpy = JSON.parse(JSON.stringify(books));
-  const searchBooks = () => {
-    const lowerCaseSearchValue = searchValue.toLowerCase();
-    if(lowerCaseSearchValue){
-      setBooks( books.filter(book => book.name.toLowerCase().includes(lowerCaseSearchValue)) ); 
-    }else{
-      setBooks (books_cpy);
+  const [booksBackup] = useState([...books]); // Tạo bản sao sâu của books
+
+  const handleKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      searchBooks();
     }
   };
 
-  const handleKeyUp = (event) => {
-      if (event.key === 'Enter') {
-          searchBooks();
-      }
+  const searchBooks = () => {
+    const lowerCaseSearchValue = searchValue.toLowerCase();
+    let filteredBooks;
+
+    if (lowerCaseSearchValue) {
+      filteredBooks = booksBackup.filter(book => book.name.toLowerCase().includes(lowerCaseSearchValue));
+      setBooks(filteredBooks);
+    } else {
+      setBooks([...booksBackup]); // Trả lại toàn bộ danh sách booksBackup khi searchValue rỗng
+    }
   };
-  
+
   return (
     <div>
       <input
@@ -30,4 +34,5 @@ function SearchBooks({ books, setBooks }) {
     </div>
   );
 }
+
 export default SearchBooks;

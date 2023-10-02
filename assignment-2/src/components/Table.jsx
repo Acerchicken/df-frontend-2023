@@ -1,7 +1,8 @@
+//Table.jsx
 import React from 'react';
 import togglePopup from './small func/TogglePopup';
 
-function Table({ books, setBooks, setIndexDelete, currentPage }) {
+function Table({ books, setIndexDelete, currentPage }) {
   const handleDeleteClick = (index) => {
     setIndexDelete(index);
     togglePopup("confirmDeletePopup");

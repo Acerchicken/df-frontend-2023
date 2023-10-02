@@ -2,35 +2,34 @@ import React, { useState } from "react";
 import togglePopup from "../components/small func/TogglePopup";
 import Table from "../components/Table";
 import addBookAndClosePopup from "../components/AddBookAndClosePopup";
-import ConfirmedToDelete from "../components/ConfirmedToDelete";
-import SearchBooks from "../components/SearchBook.jsx";
+import SearchBooks from "../components/SearchBook";
 import Pagination from "../components/Pagination";
-
+import useBooks from "../components/detailBooks";
+//console.log("run");
 function Body() {
-  const [books, setBooks] = useState([
-    { name: "Refactoring", author: "Martin Fowler", topic: "Programming" },
-    { name: "Designing Data-Intensive Applications", author: "Martin Kleppmann", topic: "Database" },
-    { name: "The Phoenix Project", author: "Gene Kim", topic: "DevOps" },
-    { name: "AAA", author: "BBBr", topic: "DevOps" },
-    { name: "DDD", author: "Mufff", topic: "Programming" },
-    { name: "EEEE", author: "ABBB", topic: "Programming" },
-  ]);
-
+  const { books, setBooks, deleteBookById} = useBooks();
   const [currentPage, setCurrentPage] = useState(1);
   const [indexDelete, setIndexDelete] = useState(null);
   const itemsPerPage = 5;
 
   const totalPages = Math.ceil(books.length / itemsPerPage);
 
-
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };  
+  
+  const handleConfirmDelete = () => {
+    if (indexDelete !== undefined) {
+      deleteBookById(indexDelete);
+      console.log("run");
+      togglePopup("confirmDeletePopup");
+    }
   };
 
   return (
     <div className="Body">
       <div className="SandAbooks">
-        <SearchBooks books={books} setBooks={setBooks} />
+        <SearchBooks setBooks={setBooks} books={books} />  
         <button className="buttAdd" onClick={() => togglePopup("popupMain")}>
           Add Book
         </button>
@@ -70,10 +69,10 @@ function Body() {
       <div className="Dialog" id="confirmDeletePopup">
         <h1>Delete book</h1>
         <p>Did you want to delete book</p>
-        <button className="Dialog-butt" onClick={() => ConfirmedToDelete(books, setBooks, indexDelete)}>Yes</button>
+        <button className="Dialog-butt" onClick={handleConfirmDelete}>Yes</button>
         <button className="Dialog-butt" onClick={() => togglePopup("confirmDeletePopup")}>Cancel</button>
       </div>
-      <Table books={books} setBooks={setBooks} setIndexDelete={setIndexDelete} currentPage={currentPage} />
+      <Table books={books} setIndexDelete={setIndexDelete} currentPage={currentPage} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

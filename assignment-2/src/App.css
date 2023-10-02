@@ -48,7 +48,7 @@
 }
 
 .dark-mode .Body{
-  background-color: #333;
+  background-color: #292b2c;
 }
 
 .dark-mode {
@@ -90,14 +90,10 @@
 /* Cập nhật màu nền container và username text */
 .dark-mode .container,
 .dark-mode .UserName {
-  background-color: #333;
+  background-color: rgb(78, 67, 67);
 }
 
-/* Cập nhật màu chữ container và username text */
-.dark-mode .container,
-.dark-mode .UserName {
-  color: #fff;
-}
+
 
 /* ===== Style footer ===== */
 .footer {

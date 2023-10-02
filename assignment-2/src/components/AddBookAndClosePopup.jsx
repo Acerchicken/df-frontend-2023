@@ -1,8 +1,8 @@
 import togglePopup from './small func/TogglePopup';
 
-
 function AddBookAndClosePopup(books, name_cpy, author_cpy, topic_cpy, setBooks) {
   const newBook = {
+    index: books.length+1,
     name: name_cpy,
     author: author_cpy,
     topic: topic_cpy,
