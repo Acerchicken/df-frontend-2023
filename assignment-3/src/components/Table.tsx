@@ -1,13 +1,15 @@
 import React from 'react';
 import togglePopup from './small func/TogglePopup';
 
+interface Book {
+  name: string;
+  author: string;
+  topic: string;
+}
+
 interface TableProps {
-  books: {
-    name: string;
-    author: string;
-    topic: string;
-  }[];
-  setIndexDelete: React.Dispatch<React.SetStateAction<number | undefined>>;
+  books: Book[];
+  setIndexDelete: React.Dispatch<React.SetStateAction<number | null>>;
   currentPage: number;
 }
 
@@ -30,7 +32,7 @@ const Table: React.FC<TableProps> = ({ books, setIndexDelete, currentPage }) => 
             <th className="column">Name</th>
             <th className="column">Author</th>
             <th className="column">Topic</th>
-            <th>Action</th>
+            <th className='column'>Action</th>
           </tr>
         </thead>
         <tbody>

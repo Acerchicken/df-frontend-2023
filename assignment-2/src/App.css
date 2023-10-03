@@ -50,6 +50,10 @@
 .dark-mode .Body{
   background-color: #292b2c;
 }
+.dark-mode .column{
+  background-color: #2196F3;
+  color: rgb(157, 255, 0);
+}
 
 .dark-mode {
   background-color: #333;

@@ -4,6 +4,6 @@ const togglePopup = (popupID: string): void => {
     popupElement.classList.toggle('active');
   }
 };
-  
+
 export default togglePopup;
   

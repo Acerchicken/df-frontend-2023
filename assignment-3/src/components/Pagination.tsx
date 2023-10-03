@@ -8,7 +8,7 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, handlePageChange }) => {
   return (
-    <div className="pagination">
+    <div className='pagination'>
       {Array.from({ length: totalPages }).map((_, index) => (
         <button
           key={index}

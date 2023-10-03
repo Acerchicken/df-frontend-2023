@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
 
-interface SearchBooksProps {
-  books: {
-    name: string;
-    author: string;
-    topic: string;
-  }[];
-  setBooks: React.Dispatch<React.SetStateAction<{
-    name: string;
-    author: string;
-    topic: string;
-  }[]>>;
+interface Book {
+  index: number;
+  name: string;
+  author: string;
+  topic: string;
 }
 
-const SearchBooks: React.FC<SearchBooksProps> = ({ books, setBooks }) => {
-  const [searchValue, setSearchValue] = useState<string>('');
-  const books_cpy = JSON.parse(JSON.stringify(books));
+interface SearchBooksProps {
+  setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
+  books: Book[];
+}
 
-  const searchBooks = () => {
-    const lowerCaseSearchValue = searchValue.toLowerCase();
-    if (lowerCaseSearchValue) {
-      setBooks(books.filter(book => book.name.toLowerCase().includes(lowerCaseSearchValue)));
-    } else {
-      setBooks(books_cpy);
+function SearchBooks({ setBooks, books }: SearchBooksProps) {
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [booksBackup] = useState<Book[]>([...books]); // Tạo bản sao sâu của books
+
+  const handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      searchBooks();
     }
   };
 
-  const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      searchBooks();
+  const searchBooks = () => {
+    const lowerCaseSearchValue = searchValue.toLowerCase();
+    let filteredBooks: Book[];
+
+    if (lowerCaseSearchValue) {
+      filteredBooks = booksBackup.filter(book => book.name.toLowerCase().includes(lowerCaseSearchValue));
+      setBooks(filteredBooks);
+    } else {
+      setBooks([...booksBackup]); // Trả lại toàn bộ danh sách booksBackup khi searchValue rỗng
     }
   };
 
@@ -38,11 +40,11 @@ const SearchBooks: React.FC<SearchBooksProps> = ({ books, setBooks }) => {
         className="SearchBox"
         placeholder="Search books"
         value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
         onKeyUp={handleKeyUp}
       />
     </div>
   );
-};
+}
 
 export default SearchBooks;

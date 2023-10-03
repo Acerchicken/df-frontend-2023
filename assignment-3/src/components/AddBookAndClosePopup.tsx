@@ -1,30 +1,21 @@
-import React from 'react';
 import togglePopup from './small func/TogglePopup';
 
-interface AddBookAndClosePopupProps {
-  books: Book[];
-  name_cpy: string;
-  author_cpy: string;
-  topic_cpy: string;
-  setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
-}
-
 interface Book {
+  index: number;
   name: string;
   author: string;
   topic: string;
 }
 
-const AddBookAndClosePopup: React.FC<AddBookAndClosePopupProps> = ({ books, name_cpy, author_cpy, topic_cpy, setBooks }) => {
-  const newBook = {
+function AddBookAndClosePopup(books: Book[], name_cpy: string, author_cpy: string, topic_cpy: string, setBooks: React.Dispatch<React.SetStateAction<Book[]>>) {
+  const newBook: Book = {
+    index: books.length,
     name: name_cpy,
     author: author_cpy,
     topic: topic_cpy,
   };
   const updatedBooks = [...books, newBook];
   setBooks(updatedBooks);
-
-  // ...
 
   // Đoạn mã này sẽ chạy sau khi trạng thái đã được cập nhật
   const nameInput = document.getElementById('nameInput') as HTMLInputElement;
@@ -39,8 +30,6 @@ const AddBookAndClosePopup: React.FC<AddBookAndClosePopupProps> = ({ books, name
 
   togglePopup('DialogConfirm');
   togglePopup('popupMain');
-
-  return <div />;
-};
+}
 
 export default AddBookAndClosePopup;
